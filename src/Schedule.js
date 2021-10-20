@@ -11,6 +11,31 @@ function dayDiff(startDate, endDate) {
     let date2 = convertStringToDate(endDate);
     return Math.ceil(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24)); 
 }
+function compressSchedule(schedule) {
+/**
+ * Given a schedule Map, return a Map with identical task objects combined into a single object with combined times.
+ */
+    let copy = new Map();
+    for (let [date, dateTasks] of schedule) {
+        if (dateTasks.length > 0) {
+            let taskTimes= new Map();
+            for (let task of dateTasks) {
+                if (taskTimes.has(task.taskId)) taskTimes.set(task.taskId, [task, taskTimes.get(task.taskId)[1]+task.time]);
+                else taskTimes.set(task.taskId, [task, task.time]);
+            }
+            let newDateTasks = [];
+            for (let [taskId, totalTime] of taskTimes) {
+                let newTask = {...totalTime[0]};
+                newTask['time'] = totalTime[1];
+                newDateTasks.push(newTask);
+            }
+            copy.set(date, newDateTasks);
+        }
+        
+
+    }
+    return copy;
+}
 
 function generateSchedule(tasks, roundTime) {
     /**
@@ -55,13 +80,6 @@ function generateSchedule(tasks, roundTime) {
         taskItems.sort((first, second) => {return bucketsPerTask.get(first.taskId)>bucketsPerTask.get(second.taskId) ? 1 : -1});
         tasksPerBucket = new Map([...tasksPerBucket.entries()].sort((first, second) => {return first[1]>second[1] ? 1: -1}));
         let i = 0;
-        for (let [date, tasks] of tasksPerBucket){
-            console.log(date);
-            console.log(tasks);
-        }
-        for (let task of taskItems){
-            console.log(task.title);
-        }
         
         while (taskItems.length>0) {
             let bucket = convertStringToDate(minDate);
@@ -84,7 +102,7 @@ function generateSchedule(tasks, roundTime) {
         for (let [date, dateTasks] of buckets) {
             if (dateTasks.length > 0) newSchedule.set(date, dateTasks);
         }
-        return newSchedule;
+        return compressSchedule(newSchedule);
     }
     else return new Map();
 }
@@ -93,7 +111,7 @@ function Schedule({tasks, roundTime}) {
     const [schedule, setSchedule] = useState(new Map());
 
     let scheduleDates = [];
-    schedule.forEach((dateTasks, date) => scheduleDates.push(<ScheduleDayTasks date={date} tasks={dateTasks} key={date}/>))
+    schedule.forEach((dateTasks, date) => scheduleDates.push(<ScheduleDayTasks date={date} tasks={dateTasks} key={'s'+date}/>))
 
 
     return (

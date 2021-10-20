@@ -11,7 +11,7 @@ function ScheduleDayTasks({date, tasks}) {
             title={task.title} 
             desc={task.desc} 
             priority={task.priority} 
-            key={task.taskId} 
+            key={'st'+task.taskId} 
             id={task.taskId}
             />
             )}
