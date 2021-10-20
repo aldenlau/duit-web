@@ -2,12 +2,13 @@
 import React, {useState} from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import {addNewTask, removeTask} from './ObjectModifiers.js';
 
 
 function getFormattedDate(date) {
-    return '' + date.getFullYear()+'/'+(date.getMonth() > 9 ? ''+date.getMonth(): '0'+date.getMonth())+'/'+(date.getDate() > 9 ? ''+date.getDate(): '0'+date.getDate())
+    return '' + date.getFullYear()+'/'+(date.getMonth() > 8 ? ''+(date.getMonth()+1): '0'+(date.getMonth()+1))+'/'+(date.getDate() > 9 ? ''+date.getDate(): '0'+date.getDate())
 }
-function AddTask({taskHandler, roundTime}) {
+function AddTask({ roundTime, setTaskState, tasksState}) {
     const [startDate, setStartDate] = useState(new Date());
     const [dueDate, setDueDate] = useState(new Date());
     const [name, setName] = useState('');
@@ -25,16 +26,24 @@ function AddTask({taskHandler, roundTime}) {
             <DatePicker selected={dueDate} onChange={(date)=>setDueDate(date)} />
             <button 
                 type='button' 
-                onClick={() => taskHandler(
-                    {time:Math.ceil(totalTime/roundTime)*roundTime, 
-                    title:name, 
-                    desc:description, 
-                    priority: prio,
-                    startDate: getFormattedDate(startDate),
-                    dueDate: getFormattedDate(dueDate),
-                    onClick: () => alert('b')
-                    }
-                )}
+                onClick={() => {
+                    let timestamp = Date.now();
+                    let formattedStartDate = getFormattedDate(startDate);
+                    let formattedDueDate = getFormattedDate(dueDate);
+                    setTaskState(addNewTask(
+                        {time:Math.ceil(totalTime/roundTime)*roundTime, 
+                        title:name, 
+                        desc:description, 
+                        priority: prio,
+                        startDate: formattedStartDate,
+                        dueDate: formattedDueDate,
+                        taskId: timestamp
+                        }, tasksState
+                    ));
+                    //else alert('Start date must be the same day or earlier than the due date.');
+                    
+                }
+                }
             >
                 Add Task
             </button>
