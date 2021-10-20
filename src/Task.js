@@ -8,7 +8,6 @@ function Task({timeToComplete, dueDate, title, desc, priority, onClick, id}) {
                 <tr>
                     <th>{title}</th>
                     <td>{timeToComplete} min</td>
-                    <td>{id}</td>
                 </tr>
             </table>
         </div>

@@ -8,6 +8,7 @@ import {addNewTask, removeTask} from './ObjectModifiers.js';
 function getFormattedDate(date) {
     return '' + date.getFullYear()+'/'+(date.getMonth() > 8 ? ''+(date.getMonth()+1): '0'+(date.getMonth()+1))+'/'+(date.getDate() > 9 ? ''+date.getDate(): '0'+date.getDate())
 }
+
 function AddTask({ roundTime, setTaskState, tasksState}) {
     const [startDate, setStartDate] = useState(new Date());
     const [dueDate, setDueDate] = useState(new Date());
@@ -37,7 +38,8 @@ function AddTask({ roundTime, setTaskState, tasksState}) {
                         priority: prio,
                         startDate: formattedStartDate,
                         dueDate: formattedDueDate,
-                        taskId: timestamp
+                        taskId: timestamp,
+                        remainingTime: Math.ceil(totalTime/roundTime)*roundTime
                         }, tasksState
                     ));
                     //else alert('Start date must be the same day or earlier than the due date.');
@@ -50,5 +52,5 @@ function AddTask({ roundTime, setTaskState, tasksState}) {
         </div>
     )
 }
-
+export {getFormattedDate};
 export default AddTask;
