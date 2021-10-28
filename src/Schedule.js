@@ -65,6 +65,7 @@ function generateSchedule(tasks, roundTime) {
                 for (let i = 0; i < Math.round(task.time/roundTime);i++) {
                     let newTask = {...task};
                     newTask['time'] = roundTime;
+                    delete newTask.onClick;
                     taskItems.push(newTask);
                 }
             }

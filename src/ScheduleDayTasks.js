@@ -12,7 +12,7 @@ function ScheduleDayTasks({date, tasks}) {
             desc={task.desc} 
             priority={task.priority} 
             key={'st'+task.taskId} 
-            id={task.taskId}
+            taskId={task.taskId}
             />
             )}
         </div>
