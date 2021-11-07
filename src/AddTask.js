@@ -33,7 +33,7 @@ function AddTask({ roundTime, setTasksState, token}) {
                     let timestamp = Date.now();
                     let formattedStartDate = getFormattedDate(startDate);
                     let formattedDueDate = getFormattedDate(dueDate);
-                    fetch(`http://localhost:8000/update/addtask?token=${token}`, {
+                    fetch(`https://duit-api.herokuapp.com/update/addtask?token=${token}`, {
                         method: 'POST',
                         headers: {
                             'Accept': 'application/json',

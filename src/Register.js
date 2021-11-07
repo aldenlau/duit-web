@@ -12,7 +12,7 @@ function Register ({setLogin}) {
             <p>Password</p>
             <input onChange={e => setPassword(e.target.value)}/>
             <button type='button' onClick={() => {
-                fetch('http://localhost:8000/register', {
+                fetch('https://duit-api.herokuapp.com/register', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',

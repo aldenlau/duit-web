@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import {makeTasksObject} from './ObjectCreator.js';
 
 
-function Login({setLogin, setToken, setTaskState, token}) {
+function Login({setLogin, setToken, setTaskState}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    let tempToken = '';
     return (
         <div>
             <button type='button' onClick={()=>setLogin()}>Create an account</button>
@@ -14,7 +15,7 @@ function Login({setLogin, setToken, setTaskState, token}) {
             <p>Password</p>
             <input onChange={e => setPassword(e.target.value)}/>
             <button type='button' onClick={() => {
-                fetch(`http://localhost:8000/login?username=${username}&password=${password}`)
+                fetch(`https://duit-api.herokuapp.com/login?username=${username}&password=${password}`)
                 .then(res => {
                     if (res.status!=401){
                         return res.json()
@@ -24,8 +25,11 @@ function Login({setLogin, setToken, setTaskState, token}) {
                         return {token: ''};
                     }
                 })
-                .then(data => setToken(data.token))
-                .then(_ => fetch(`http://localhost:8000/update/tasks?token=${token}`))
+                .then(data => {
+                    setToken(data.token);
+                    tempToken = data.token;
+                })
+                .then(_ => fetch(`https://duit-api.herokuapp.com/update/tasks?token=${tempToken}`))
                 .then(res => res.json())
                 .then(data => setTaskState(makeTasksObject(data)))
             }}>

@@ -16,7 +16,7 @@ function DayTasks({date, tasks, completedState, setTasksState, setCompletedState
             priority={task.priority} 
             onClick={()=>{
 
-                fetch(`http://localhost:8000/update/deltask?token=${token}`, {
+                fetch(`https://duit-api.herokuapp.com/update/deltask?token=${token}`, {
                     method: 'PUT',
                     headers: {
                         'Accept': 'application/json',
