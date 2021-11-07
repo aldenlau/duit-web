@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/duit-web/static/css/main.a617e044.chunk.css",
+    "main.js": "/duit-web/static/js/main.ad5eeb08.chunk.js",
+    "main.js.map": "/duit-web/static/js/main.ad5eeb08.chunk.js.map",
+    "runtime-main.js": "/duit-web/static/js/runtime-main.bb82cf00.js",
+    "runtime-main.js.map": "/duit-web/static/js/runtime-main.bb82cf00.js.map",
+    "static/css/2.ecdd39c8.chunk.css": "/duit-web/static/css/2.ecdd39c8.chunk.css",
+    "static/js/2.24da9629.chunk.js": "/duit-web/static/js/2.24da9629.chunk.js",
+    "static/js/2.24da9629.chunk.js.map": "/duit-web/static/js/2.24da9629.chunk.js.map",
+    "static/js/3.960ea874.chunk.js": "/duit-web/static/js/3.960ea874.chunk.js",
+    "static/js/3.960ea874.chunk.js.map": "/duit-web/static/js/3.960ea874.chunk.js.map",
+    "index.html": "/duit-web/index.html",
+    "static/css/2.ecdd39c8.chunk.css.map": "/duit-web/static/css/2.ecdd39c8.chunk.css.map",
+    "static/css/main.a617e044.chunk.css.map": "/duit-web/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.24da9629.chunk.js.LICENSE.txt": "/duit-web/static/js/2.24da9629.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/duit-web/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bb82cf00.js",
+    "static/css/2.ecdd39c8.chunk.css",
+    "static/js/2.24da9629.chunk.js",
+    "static/css/main.a617e044.chunk.css",
+    "static/js/main.ad5eeb08.chunk.js"
+  ]
+}
