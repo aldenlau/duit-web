@@ -1,18 +1,20 @@
 import React, {useState} from 'react';
 import {makeTasksObject} from './ObjectCreator.js';
+import styled from 'styled-components';
+import {Button} from './StyledElements.js';
 
-function Register ({setLogin, setToken, setTaskState}) {
+function RegisterBase ({className, setLogin, setToken, setTaskState}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     return (
-        <div>
-            <button type='button' onClick={()=>setLogin()}>Log in with an existing account</button>
+        <div className={className}>
+            <Button type='button' onClick={()=>setLogin()}>Log in with an existing account</Button>
             <p>Register</p>
             <p>Username</p>
             <input onChange={e => setUsername(e.target.value)}/>
             <p>Password</p>
             <input onChange={e => setPassword(e.target.value)}/>
-            <button type='button' onClick={() => {
+            <Button type='button' onClick={() => {
                 fetch('https://duit-api.herokuapp.com/auth/register', {
                     method: 'POST',
                     headers: {
@@ -31,8 +33,15 @@ function Register ({setLogin, setToken, setTaskState}) {
                 .then(data => setTaskState(makeTasksObject(data)))
             }}>
                 Register
-            </button>
+            </Button>
         </div>
     );
 }
+
+const Register = styled(RegisterBase)`
+    display: flex;
+    flex-direction: row;
+    padding 6px 12px 7px 12px;
+    align-items: baseline;
+`;
 export default Register;

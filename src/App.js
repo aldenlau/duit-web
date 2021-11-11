@@ -1,11 +1,13 @@
-
-import logo from './logo.svg';
 import './App.css';
-import DayTasks from './DayTasks.js';
 import AddTask from './AddTask.js';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Schedule from './Schedule.js';
 import DisplayUser from './DisplayUser';
+import ToDoList from './ToDoList';
+import { ThemeProvider } from 'styled-components';
+import {GlobalStyle, theme} from './StyledElements';
+
+
 function App() {
   const [tasks, setTasks] = useState(new Map());
   const [minTime, setMinTime] = useState(30);
@@ -13,24 +15,30 @@ function App() {
   const [reminders, setReminders] = useState([]);
   const [token, setToken] = useState('');
 
-  let taskDates = [];
-  tasks.forEach((dateTasks, date) => taskDates.push(<DayTasks date={date} tasks={dateTasks} key={date} completedState={completedTasks} setTasksState={setTasks} setCompletedState={setCompletedTasks} token={token}/>))
-
-  //let completedTaskDates = [];
-  //completedTasks.forEach((dateTasks, date) => completedTaskDates.push(<DayTasks date={date} tasks={dateTasks} key={date} tasksState = {tasks} completedState={completedTasks} setTasksState={setTasks} setCompletedState={setCompletedTasks}/>))
+  useEffect(() => document.title = "Duit");
 
   return (
     <div className="App">
+      <ThemeProvider theme={theme}>
+        <GlobalStyle/>
       <DisplayUser setTokenState = {setToken} setTasksState = {setTasks}/>
       <AddTask 
         roundTime={minTime} 
         setTasksState={setTasks} 
         token={token}
       />
-      {taskDates}
+      <ToDoList 
+        tasks={tasks}
+        completedTasks={completedTasks}
+        setTasks={setTasks}
+        setCompletedTasks={setCompletedTasks}
+        token={token}
+      />
       <Schedule tasks={tasks} roundTime={minTime}/>
+      </ThemeProvider>
     </div>
   );
 }
+
 
 export default App;

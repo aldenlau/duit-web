@@ -3,12 +3,13 @@ import React, {useState} from 'react';
 import Register from './Register.js';
 import Login from './Login.js';
 import GoogleSignIn from './GoogleSignIn.js';
+import styled from 'styled-components';
 
 
-function DisplayUser({setTokenState, setTasksState}) {
+function  DisplayUserBase({className, setTokenState, setTasksState}) {
     const [showLogin, setShowLogin] = useState(true);
     return (
-        <div>
+        <div className={className}>
             <GoogleSignIn 
                 setToken={setTokenState} 
                 setTaskState={setTasksState}
@@ -27,5 +28,12 @@ function DisplayUser({setTokenState, setTasksState}) {
         </div>
     );
 }
+
+const DisplayUser = styled(DisplayUserBase)`
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: baseline;
+`;
 
 export default DisplayUser;

@@ -3,13 +3,14 @@ import React, {useState} from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import {makeTasksObject} from './ObjectCreator.js';
-
+import styled from 'styled-components';
+import {Button} from './StyledElements.js';
 
 function getFormattedDate(date) {
     return '' + date.getFullYear()+'/'+(date.getMonth() > 8 ? ''+(date.getMonth()+1): '0'+(date.getMonth()+1))+'/'+(date.getDate() > 9 ? ''+date.getDate(): '0'+date.getDate())
 }
 
-function AddTask({ roundTime, setTasksState, token}) {
+function AddTaskBase({className, roundTime, setTasksState, token}) {
     const [startDate, setStartDate] = useState(new Date());
     const [dueDate, setDueDate] = useState(new Date());
     const [name, setName] = useState('');
@@ -19,7 +20,7 @@ function AddTask({ roundTime, setTasksState, token}) {
     
     
     return (
-        <div>
+        <div className={className}>
             <p>Add new task</p>
             <input onChange={e => setName(e.target.value)}/>
             <input onChange={e => setDescription(e.target.value)}/>
@@ -27,7 +28,7 @@ function AddTask({ roundTime, setTasksState, token}) {
             <input type='number' onChange={e=> setPrio(parseInt(e.target.value))}/>
             <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
             <DatePicker selected={dueDate} onChange={(date)=>setDueDate(date)} />
-            <button 
+            <Button 
                 type='button' 
                 onClick={() => {
                     let timestamp = Date.now();
@@ -58,9 +59,14 @@ function AddTask({ roundTime, setTasksState, token}) {
                 }
             >
                 Add Task
-            </button>
+            </Button>
         </div>
     )
 }
+
+const AddTask = styled(AddTaskBase)`
+
+`;
+
 export {getFormattedDate};
 export default AddTask;

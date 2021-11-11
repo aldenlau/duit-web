@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import ScheduleDayTasks from './DayTasks.js';
 import {getFormattedDate} from './AddTask.js';
+import {Button} from './StyledElements.js';
 
 function convertStringToDate(date) {
     return new Date(date.substring(5,7)+'/'+date.substring(8,10)+'/'+date.substring(0,4));
@@ -117,9 +118,9 @@ function Schedule({tasks, roundTime}) {
 
     return (
         <div>
-            <button onClick={() => setSchedule(generateSchedule(tasks, roundTime))}>
+            <Button onClick={() => setSchedule(generateSchedule(tasks, roundTime))}>
                 Generate new schedule
-            </button>
+            </Button>
             {scheduleDates}
         </div>
     );

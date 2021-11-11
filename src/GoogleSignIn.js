@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {makeTasksObject} from './ObjectCreator.js';
+import styled from 'styled-components';
 
-function GoogleSignIn ({setToken, setTaskState}) {
+function GoogleSignInBase ({setToken, setTaskState}) {
     
     function onSignIn(googleUser) {
         var id_token = googleUser.getAuthResponse().id_token;
@@ -27,10 +28,10 @@ function GoogleSignIn ({setToken, setTaskState}) {
     useEffect(() => {
         window.gapi.signin2.render('g-signin2', {
           'scope': 'https://www.googleapis.com/auth/plus.login',
-          'width': 200,
-          'height': 50,
-          'longtitle': true,
-          'theme': 'dark',
+          'width': 120,
+          'height': 36,
+          'longtitle': false,
+          'theme': 'light',
           'onsuccess': onSignIn
         })
       })
@@ -40,5 +41,8 @@ function GoogleSignIn ({setToken, setTaskState}) {
         </div>
     );
 }
+
+const GoogleSignIn = styled(GoogleSignInBase)`
+`;
 
 export default GoogleSignIn;
