@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/duit-web/static/css/main.a617e044.chunk.css",
-    "main.js": "/duit-web/static/js/main.dd0eaadf.chunk.js",
-    "main.js.map": "/duit-web/static/js/main.dd0eaadf.chunk.js.map",
+    "main.js": "/duit-web/static/js/main.c048f7ec.chunk.js",
+    "main.js.map": "/duit-web/static/js/main.c048f7ec.chunk.js.map",
     "runtime-main.js": "/duit-web/static/js/runtime-main.bb82cf00.js",
     "runtime-main.js.map": "/duit-web/static/js/runtime-main.bb82cf00.js.map",
     "static/css/2.ecdd39c8.chunk.css": "/duit-web/static/css/2.ecdd39c8.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.ecdd39c8.chunk.css",
     "static/js/2.24da9629.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.dd0eaadf.chunk.js"
+    "static/js/main.c048f7ec.chunk.js"
   ]
 }
