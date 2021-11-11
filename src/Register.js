@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
+import {makeTasksObject} from './ObjectCreator.js';
 
-function Register ({setLogin}) {
+function Register ({setLogin, setToken, setTaskState}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [tempToken, setTempToken] = useState('');
     return (
         <div>
             <button type='button' onClick={()=>setLogin()}>Log in with an existing account</button>
@@ -12,7 +14,7 @@ function Register ({setLogin}) {
             <p>Password</p>
             <input onChange={e => setPassword(e.target.value)}/>
             <button type='button' onClick={() => {
-                fetch('https://duit-api.herokuapp.com/register', {
+                fetch('https://duit-api.herokuapp.com/auth/register', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -20,7 +22,13 @@ function Register ({setLogin}) {
                     },
                     body: JSON.stringify({username: username, password: password})
                 })
-                .then(res => console.log(res.status));
+                .then(data => {
+                    setToken(data.token);
+                    setTempToken(data.token);
+                })
+                .then(_ => fetch(`https://duit-api.herokuapp.com/update/tasks?token=${tempToken}`))
+                .then(res => res.json())
+                .then(data => setTaskState(makeTasksObject(data)))
             }}>
                 Register
             </button>
