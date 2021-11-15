@@ -40,8 +40,8 @@ function RegisterBase ({className, setLogin, setToken, setTaskState}) {
 
 const Register = styled(RegisterBase)`
     display: flex;
-    flex-direction: row;
-    padding 6px 12px 7px 12px;
+    flex-direction: column;
+    padding: 6px 12px 7px 12px;
     align-items: baseline;
 `;
 export default Register;

@@ -2,11 +2,29 @@ import styled, {createGlobalStyle} from 'styled-components';
 // Arvo or Merriweather
 const theme = {
     main: '#00a2ff',
-    fontFamily: 'Arvo',
+    second: '#69c8ff',
+    fontFamily: 'Merriweather',
 };
 
 const Button = styled.button`
     background-color: ${props => props.theme.main};
+    color: #fff;
+    border: 1px solid transparent;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 35px;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 6px 12px 7px 12px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    font-family: ${props => props.theme.fontFamily};
+`;
+
+const Button2 = styled.button`
+    background-color: ${props => props.theme.second};
     color: #fff;
     border: 1px solid transparent;
     margin-right: 5px;
@@ -35,4 +53,4 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-export {Button, Input, GlobalStyle, theme};
+export {Button, Button2, Input, GlobalStyle, theme};

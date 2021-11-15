@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {makeTasksObject} from './ObjectCreator.js';
 import styled from 'styled-components';
-import {Button, Input} from './StyledElements.js';
+import {Button, Button2, Input} from './StyledElements.js';
 
 function LoginBase({className, setLogin, setToken, setTaskState}) {
     const [username, setUsername] = useState('');
@@ -9,7 +9,7 @@ function LoginBase({className, setLogin, setToken, setTaskState}) {
 
     return (
         <div className={className}>
-            <a onClick={()=>setLogin()}>Create an account</a>
+            <Button2 onClick={()=>setLogin()}>Create an account</Button2>
             <p>Login</p>
             <p>Username</p>
             <Input onChange={e => setUsername(e.target.value)}/>
@@ -42,8 +42,8 @@ function LoginBase({className, setLogin, setToken, setTaskState}) {
 
 const Login = styled(LoginBase)`
     display: flex;
-    flex-direction: row;
-    padding 6px 12px 7px 12px;
+    flex-direction: column;
+    padding: 6px 12px 7px 12px;
     align-items: baseline;
 `;
 

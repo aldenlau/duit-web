@@ -1,14 +1,11 @@
 import './App.css';
-import AddTask from './AddTask.js';
 import React, {useState, useEffect} from 'react';
-import Schedule from './Schedule.js';
-import DisplayUser from './DisplayUser';
-import ToDoList from './ToDoList';
+import LoginPage from './LoginPage';
 import { ThemeProvider } from 'styled-components';
 import {GlobalStyle, theme} from './StyledElements';
-
-
-function App() {
+import Main from './Main.js';
+import styled from 'styled-components';
+function AppBase() {
   const [tasks, setTasks] = useState(new Map());
   const [minTime, setMinTime] = useState(30);
   const [completedTasks, setCompletedTasks] = useState(new Map());
@@ -20,25 +17,30 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <GlobalStyle/>
-      <DisplayUser setTokenState = {setToken} setTasksState = {setTasks}/>
-      <AddTask 
-        roundTime={minTime} 
-        setTasksState={setTasks} 
+      <GlobalStyle/>
+      {token==='' ? 
+        <LoginPage setTokenState = {setToken} setTasksState = {setTasks}/>
+        :
+        <Main 
+        tasks={tasks} 
+        setTasks={setTasks} 
+        minTime={minTime} 
+        completedTasks={completedTasks} 
+        setCompletedTasks={setCompletedTasks} 
+        reminders={reminders} 
+        setReminders={setReminders}
         token={token}
-      />
-      <ToDoList 
-        tasks={tasks}
-        completedTasks={completedTasks}
-        setTasks={setTasks}
-        setCompletedTasks={setCompletedTasks}
-        token={token}
-      />
-      <Schedule tasks={tasks} roundTime={minTime}/>
+        setToken={setToken}
+        />      
+      }
+      
+      
+      
       </ThemeProvider>
     </div>
   );
 }
-
+const App = styled(AppBase)`
+`;
 
 export default App;

@@ -6,14 +6,10 @@ import GoogleSignIn from './GoogleSignIn.js';
 import styled from 'styled-components';
 
 
-function  DisplayUserBase({className, setTokenState, setTasksState}) {
+function LoginPageBase({className, setTokenState, setTasksState}) {
     const [showLogin, setShowLogin] = useState(true);
     return (
         <div className={className}>
-            <GoogleSignIn 
-                setToken={setTokenState} 
-                setTaskState={setTasksState}
-            />
             {showLogin ? <Login 
                 setLogin={() => setShowLogin(false)} 
                 setToken={setTokenState} 
@@ -24,16 +20,20 @@ function  DisplayUserBase({className, setTokenState, setTasksState}) {
                 setLogin={() => setShowLogin(true)}
                 setToken={setTokenState} 
                 setTaskState={setTasksState}
-                />}
+            />}
+            <GoogleSignIn 
+                setToken={setTokenState} 
+                setTaskState={setTasksState}
+            />
         </div>
     );
 }
 
-const DisplayUser = styled(DisplayUserBase)`
-    display:flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: baseline;
+const LoginPage = styled(LoginPageBase)`
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
 `;
 
-export default DisplayUser;
+export default LoginPage;
