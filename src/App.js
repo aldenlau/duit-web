@@ -5,6 +5,8 @@ import { ThemeProvider } from 'styled-components';
 import {GlobalStyle, theme} from './StyledElements';
 import Main from './Main.js';
 import styled from 'styled-components';
+import logo from './logo.png'
+
 function AppBase() {
   const [tasks, setTasks] = useState(new Map());
   const [minTime, setMinTime] = useState(30);
@@ -18,6 +20,7 @@ function AppBase() {
     <div className="App">
       <ThemeProvider theme={theme}>
       <GlobalStyle/>
+      <img src={logo} width="5%" height="5%"></img>
       {token==='' ? 
         <LoginPage setTokenState = {setToken} setTasksState = {setTasks}/>
         :

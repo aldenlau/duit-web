@@ -34,7 +34,7 @@ function GoogleSignInBase ({setToken, setTaskState}) {
           'theme': 'light',
           'onsuccess': onSignIn
         })
-      })
+    });
     return (
         <div>
         <div id="g-signin2" data-onsuccess={onSignIn}></div>

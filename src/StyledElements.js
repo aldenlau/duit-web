@@ -30,7 +30,7 @@ const Button2 = styled.button`
     margin-right: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
-    height: 35px;
+    height: 28px;
     font-weight: bold;
     font-size: 12px;
     padding: 6px 12px 7px 12px;

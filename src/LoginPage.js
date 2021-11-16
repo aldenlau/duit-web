@@ -10,6 +10,10 @@ function LoginPageBase({className, setTokenState, setTasksState}) {
     const [showLogin, setShowLogin] = useState(true);
     return (
         <div className={className}>
+            <GoogleSignIn 
+                setToken={setTokenState} 
+                setTaskState={setTasksState}
+            />
             {showLogin ? <Login 
                 setLogin={() => setShowLogin(false)} 
                 setToken={setTokenState} 
@@ -21,19 +25,18 @@ function LoginPageBase({className, setTokenState, setTasksState}) {
                 setToken={setTokenState} 
                 setTaskState={setTasksState}
             />}
-            <GoogleSignIn 
-                setToken={setTokenState} 
-                setTaskState={setTasksState}
-            />
+            
         </div>
     );
 }
 
 const LoginPage = styled(LoginPageBase)`
-    margin: auto;
+    margin:auto;
+    width: 25%;
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    align-items:center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 `;
 
 export default LoginPage;

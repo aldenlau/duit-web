@@ -44,7 +44,7 @@ const Login = styled(LoginBase)`
     display: flex;
     flex-direction: column;
     padding: 6px 12px 7px 12px;
-    align-items: baseline;
+    align-items:center;
 `;
 
 export default Login;

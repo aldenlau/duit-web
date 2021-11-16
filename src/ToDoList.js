@@ -1,3 +1,5 @@
+// Add filters for to-do list and schedule
+
 import DayTasks from './DayTasks.js';
 
 function ToDoList({tasks, completedTasks, setTasks, setCompletedTasks, token}) {
