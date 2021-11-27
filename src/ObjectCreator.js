@@ -22,6 +22,7 @@ function makeTasksObject(rawTasks) {
       tasks.set(rawTask.due_date, [task])
     }
   }
+  tasks = new Map([...tasks.entries()].sort())
   return tasks;
 }
 

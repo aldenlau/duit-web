@@ -2,8 +2,8 @@
 // section of tasks for that day
 import Task from './Task.js';
 import {makeTasksObject} from './ObjectCreator.js';
-
-function DayTasks({date, tasks, completedState, setTasksState, setCompletedState, token}) {
+import styled from 'styled-components';
+function DayTasksBase({date, tasks, completedState, setTasksState, setCompletedState, token}) {
     return (
         <div>
         <div>{date}</div>
@@ -37,5 +37,9 @@ function DayTasks({date, tasks, completedState, setTasksState, setCompletedState
         </div>
     )
 }
+
+const DayTasks = styled(DayTasksBase)`
+    
+`;
 
 export default DayTasks;

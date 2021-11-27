@@ -4,13 +4,13 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import {makeTasksObject} from './ObjectCreator.js';
 import styled from 'styled-components';
-import {Button} from './StyledElements.js';
+import {Button, Input} from './StyledElements.js';
 
 function getFormattedDate(date) {
     return '' + date.getFullYear()+'/'+(date.getMonth() > 8 ? ''+(date.getMonth()+1): '0'+(date.getMonth()+1))+'/'+(date.getDate() > 9 ? ''+date.getDate(): '0'+date.getDate())
 }
 
-function AddTaskBase({className, roundTime, setTasksState, token}) {
+function AddTaskBase({className, minTime, setTasksState, token}) {
     const [startDate, setStartDate] = useState(new Date());
     const [dueDate, setDueDate] = useState(new Date());
     const [name, setName] = useState('');
@@ -22,10 +22,10 @@ function AddTaskBase({className, roundTime, setTasksState, token}) {
     return (
         <div className={className}>
             <p>Add new task</p>
-            <input onChange={e => setName(e.target.value)}/>
-            <input onChange={e => setDescription(e.target.value)}/>
-            <input type='number' onChange={e => setTotalTime(parseInt(e.target.value))}/>
-            <input type='number' onChange={e=> setPrio(parseInt(e.target.value))}/>
+            <Input onChange={e => setName(e.target.value)}/>
+            <Input onChange={e => setDescription(e.target.value)}/>
+            <Input type='number' onChange={e => setTotalTime(parseInt(e.target.value))}/>
+            <Input type='number' onChange={e=> setPrio(parseInt(e.target.value))}/>
             <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
             <DatePicker selected={dueDate} onChange={(date)=>setDueDate(date)} />
             <Button 
@@ -41,8 +41,8 @@ function AddTaskBase({className, roundTime, setTasksState, token}) {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            time:Math.ceil(totalTime/roundTime)*roundTime,
-                            remainingTime: Math.ceil(totalTime/roundTime)*roundTime,
+                            time:Math.ceil(totalTime/minTime)*minTime,
+                            remainingTime: Math.ceil(totalTime/minTime)*minTime,
                             title:name, 
                             desc:description, 
                             priority: prio,
@@ -65,7 +65,9 @@ function AddTaskBase({className, roundTime, setTasksState, token}) {
 }
 
 const AddTask = styled(AddTaskBase)`
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 export {getFormattedDate};
