@@ -15,7 +15,6 @@ function DayTasksBase({date, tasks, completedState, setTasksState, setCompletedS
             desc={task.desc} 
             priority={task.priority} 
             onClick={()=>{
-
                 fetch(`https://duit-api.herokuapp.com/update/deltask?token=${token}`, {
                     method: 'PUT',
                     headers: {

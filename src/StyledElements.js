@@ -3,7 +3,7 @@ import styled, {createGlobalStyle} from 'styled-components';
 const theme = {
     main: '#00a2ff',
     second: '#69c8ff',
-    fontFamily: 'Merriweather',
+    fontFamily: 'Roboto',
 };
 
 const Button = styled.button`

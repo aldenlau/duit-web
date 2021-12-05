@@ -26,8 +26,8 @@ function AddTaskBase({className, minTime, setTasksState, token}) {
             <Input onChange={e => setDescription(e.target.value)}/>
             <Input type='number' onChange={e => setTotalTime(parseInt(e.target.value))}/>
             <Input type='number' onChange={e=> setPrio(parseInt(e.target.value))}/>
-            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-            <DatePicker selected={dueDate} onChange={(date)=>setDueDate(date)} />
+            <div><DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /></div>
+            <div><DatePicker selected={dueDate} onChange={(date)=>setDueDate(date)} /></div>
             <Button 
                 type='button' 
                 onClick={() => {
