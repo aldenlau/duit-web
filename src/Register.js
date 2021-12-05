@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {makeTasksObject} from './ObjectCreator.js';
 import styled from 'styled-components';
 import {Button, Button2, Input} from './StyledElements.js';
 
@@ -26,11 +25,7 @@ function RegisterBase ({className, setLogin, setToken, setTaskState}) {
                 .then(res => res.json())
                 .then(data => {
                     setToken(data.token);
-                    return data.token;
-                })
-                .then(token => fetch(`https://duit-api.herokuapp.com/update/tasks?token=${token}`))
-                .then(res => res.json())
-                .then(data => setTaskState(makeTasksObject(data)))
+                });
             }}>
                 Register
             </Button>

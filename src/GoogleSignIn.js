@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {makeTasksObject} from './ObjectCreator.js';
 import styled from 'styled-components';
 

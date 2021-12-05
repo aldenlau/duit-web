@@ -53,8 +53,8 @@ function generateSchedule(tasks, roundTime) {
             for (let task of dateTasks) {
                 let availableBuckets = dayDiff(task.startDate, task.dueDate)+1
                 bucketsPerTask.set(task.taskId, availableBuckets);
-                if (minDate==undefined || minDate > task.startDate) minDate = task.startDate;
-                if (maxDate==undefined || maxDate <task.dueDate) maxDate = task.dueDate;
+                if (minDate===undefined || minDate > task.startDate) minDate = task.startDate;
+                if (maxDate===undefined || maxDate <task.dueDate) maxDate = task.dueDate;
                 
                 for (let i = 0; i < availableBuckets; i++) {
                     let bucket = convertStringToDate(task.startDate);

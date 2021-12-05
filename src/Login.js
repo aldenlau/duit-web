@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {makeTasksObject} from './ObjectCreator.js';
 import styled from 'styled-components';
 import {Button, Button2, Input} from './StyledElements.js';
 
@@ -18,7 +17,7 @@ function LoginBase({className, setLogin, setToken, setTaskState}) {
             <Button type='button' onClick={() => {
                 fetch(`https://duit-api.herokuapp.com/auth/login?username=${username}&password=${password}`)
                 .then(res => {
-                    if (res.status!=401){
+                    if (res.status!==401){
                         return res.json()
                     }
                     else {
@@ -28,11 +27,7 @@ function LoginBase({className, setLogin, setToken, setTaskState}) {
                 })
                 .then(data => {
                     setToken(data.token);
-                    return data.token;
-                })
-                .then(token => fetch(`https://duit-api.herokuapp.com/update/tasks?token=${token}`))
-                .then(res => res.json())
-                .then(data => setTaskState(makeTasksObject(data)))
+                });
             }}>
                 Log in
             </Button>

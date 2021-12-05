@@ -15,7 +15,8 @@ function LoginPageBase({className, setTokenState, setTasksState}) {
                 setToken={setTokenState} 
                 setTaskState={setTasksState}
             />
-            {showLogin ? <Login 
+            {showLogin ? 
+                <Login 
                 setLogin={() => setShowLogin(false)} 
                 setToken={setTokenState} 
                 setTaskState={setTasksState}
@@ -25,7 +26,8 @@ function LoginPageBase({className, setTokenState, setTasksState}) {
                 setLogin={() => setShowLogin(true)}
                 setToken={setTokenState} 
                 setTaskState={setTasksState}
-            />}
+                />
+            }
             
         </div>
     );
