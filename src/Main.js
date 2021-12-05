@@ -32,5 +32,7 @@ const Main = styled(MainBase)`
     display: flex;
     flex-direction: row;
     margin: 5px;
+    height: 100%;
+    min-height: 0;
 `;
 export default Main;

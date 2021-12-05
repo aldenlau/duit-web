@@ -4,7 +4,21 @@ const theme = {
     main: '#00a2ff',
     second: '#69c8ff',
     fontFamily: 'Roboto',
+    backgroundColor: '#FFFFFF',
+    altColor: 'C9C9C9',
+    fontColor: '#000000',
+    inputColor: '#F2F2F2',
 };
+
+const dark_theme = {
+    main: '#003959',
+    second: '#32607A',
+    fontFamily: 'Roboto',
+    backgroundColor: '#2F3136',
+    altColor: '#2C2E33',
+    fontColor: '#FFFFFF',
+    inputColor: '#40444B',
+}
 
 const Button = styled.button`
     background-color: ${props => props.theme.main};
@@ -42,15 +56,33 @@ const Button2 = styled.button`
 
 const Input = styled.input`
     border: hidden;
-    background-color: #f2f2f2;
+    background-color: ${props => props.theme.inputColor};
     border-radius: 5px;
     height: 25px;
 `;
 
+const Footer = styled.footer`
+    display: flex;
+    justify-content: space-between;
+    background-color: ${props => props.theme.altColor};
+    align-items: center;
+`;
+
 const GlobalStyle = createGlobalStyle`
+    html {
+        height: 100%;
+    }
+    #root {
+        height: 100vh;
+    }
     body {
         font-family: ${props => props.theme.fontFamily};
+        background-color: ${props => props.theme.backgroundColor};
+        height: 100%;
+    }
+    p, h1, h2, h3 {
+        color: ${props => props.theme.fontColor};
     }
 `;
 
-export {Button, Button2, Input, GlobalStyle, theme};
+export {Button, Button2, Input, Footer, GlobalStyle, theme, dark_theme};

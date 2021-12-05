@@ -23,6 +23,7 @@ const ToDoList = styled(ToDoListBase)`
     width: 33%;
     display: flex;
     flex-direction: column;
+    overflow: auto;
 `;
 
 export default ToDoList;
