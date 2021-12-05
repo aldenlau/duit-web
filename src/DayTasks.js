@@ -6,7 +6,7 @@ import styled from 'styled-components';
 function DayTasksBase({date, tasks, completedState, setTasksState, setCompletedState, token}) {
     return (
         <div>
-        <div>{date}</div>
+        <div><p>{date}</p></div>
         {tasks.map(
             task => <Task 
             timeToComplete={task.time} 
