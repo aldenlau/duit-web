@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/duit-web/static/css/main.324123ca.chunk.css",
-    "main.js": "/duit-web/static/js/main.7150175f.chunk.js",
-    "main.js.map": "/duit-web/static/js/main.7150175f.chunk.js.map",
+    "main.css": "/duit-web/static/css/main.3d9e396b.chunk.css",
+    "main.js": "/duit-web/static/js/main.22c2a0a5.chunk.js",
+    "main.js.map": "/duit-web/static/js/main.22c2a0a5.chunk.js.map",
     "runtime-main.js": "/duit-web/static/js/runtime-main.57f61189.js",
     "runtime-main.js.map": "/duit-web/static/js/runtime-main.57f61189.js.map",
     "static/css/2.ecdd39c8.chunk.css": "/duit-web/static/css/2.ecdd39c8.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.e604a887.chunk.js.map": "/duit-web/static/js/3.e604a887.chunk.js.map",
     "index.html": "/duit-web/index.html",
     "static/css/2.ecdd39c8.chunk.css.map": "/duit-web/static/css/2.ecdd39c8.chunk.css.map",
-    "static/css/main.324123ca.chunk.css.map": "/duit-web/static/css/main.324123ca.chunk.css.map",
+    "static/css/main.3d9e396b.chunk.css.map": "/duit-web/static/css/main.3d9e396b.chunk.css.map",
     "static/js/2.b55676d2.chunk.js.LICENSE.txt": "/duit-web/static/js/2.b55676d2.chunk.js.LICENSE.txt",
     "static/media/logo.994c7676.png": "/duit-web/static/media/logo.994c7676.png"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.57f61189.js",
     "static/css/2.ecdd39c8.chunk.css",
     "static/js/2.b55676d2.chunk.js",
-    "static/css/main.324123ca.chunk.css",
-    "static/js/main.7150175f.chunk.js"
+    "static/css/main.3d9e396b.chunk.css",
+    "static/js/main.22c2a0a5.chunk.js"
   ]
 }
